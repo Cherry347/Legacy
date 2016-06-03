@@ -1,0 +1,22 @@
+{
+  "name": "legacy",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "connect-multiparty": "^2.0.0",
+    "express": "^4.13.4",
+    "materialize-css": "^0.97.6",
+    "mongoose": "^4.4.4",
+    "morgan": "^1.7.0",
+    "s3": "^4.4.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

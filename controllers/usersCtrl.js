@@ -1,6 +1,8 @@
 var User    = require('../models/users.js');
 var s3      = require('s3');
+var jwt		= require("jsonwebtoken");
 
+var secret	= "Poptart";
 
 var s3Client = s3.createClient({
 	s3Options :{
@@ -55,6 +57,30 @@ function createUser(req, res) {
 
 }
 
+function signIn (req, res) {
+	User.findOne({userName : req.body.userName}, function(err, user) {
+		if(err) {
+			res.json(err);
+		}
+		if(user) {
+			if(user.comparePassword(req.body.password)){
+				var token= jwt.sign({userName: user.userName, id: user._id}, secret, {expiresIn: "7d"});
+				res.json({sucsess: true, message: "you're logged in!", token: token});
+			}
+			else {
+				res.json({message: "password doesn't match"});
+			}
+		}
+		else {
+			res.json({message: "user doesn't exist"});
+		}
+	})
+}
+
+
+
+
+
 function getUsers (req, res){
 	console.log('params', req.params);
 	if(req.params.userID){
@@ -82,17 +108,9 @@ function updateUser (req, res){
 }
 
 
-//Get Credentials in Config\\
-// s3.config.credentials = new s3.CognitoIdentityCredentials();
-// s3.config.credentials.get(function(err) {
-//   if (err) console.log(err);
-//   else console.log(s3.config.credentials);
-// });
-
-
-
 module.exports = {
 	createUser : createUser,
 	getUsers : getUsers,
-	updateUser : updateUser
+	updateUser : updateUser,
+	signIn: signIn
 };

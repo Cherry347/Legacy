@@ -13,9 +13,9 @@ var s3Client = s3.createClient({
 function createUser(req, res) {
 	console.log('BODY', req.body);
 
-	User.create(req.body, function(err, user) {
-		console.log("user: ", user);
-	});
+	// User.create(req.body, function(err, user) {
+	// 	console.log("user: ", user);
+	// });
 
 	// var body = req.body.data
 
@@ -45,9 +45,6 @@ function createUser(req, res) {
 
 		var url = s3.getPublicUrlHttp('legacyphotoalbum', file.name);
 		console.log('URL', url);
-		user.save(function(err, savedUser) {
-			res.send(savedUser);
-		});
 
 	});
 

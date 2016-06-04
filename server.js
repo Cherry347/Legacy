@@ -30,7 +30,7 @@ app.post('/api/users/:userID', usersCtrl.updateUser);
 
 
 // Creating Server and Listening for Connections \\
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 80;
 app.listen(port, function(){
   console.log('Server running on port ' + port);
 

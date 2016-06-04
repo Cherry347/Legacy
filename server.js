@@ -29,12 +29,6 @@ app.post('/api/users', multiparty(), usersCtrl.createUser);
 app.post('/api/users/:userID', usersCtrl.updateUser);
 
 
-
-// app.post('/api/hqs', hqCtrl.createHQ)
-
-
-
-
 // Creating Server and Listening for Connections \\
 var port = process.env.PORT || 8080;
 app.listen(port, function(){

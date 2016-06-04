@@ -10,51 +10,53 @@ var s3Client = s3.createClient({
 });
 
 
-function createUser (req, res){
+function createUser(req, res) {
 	console.log('BODY', req.body);
-	console.log('===');
-	console.log('FILES', req);
-
-	var body = req.body.data;
 
 	User.create(req.body, function(err, user) {
-		console.log("user ", user);
-		console.log("this is the err ", err);
-		res.send({message:"new user", user: user});
+		console.log("user: ", user);
 	});
 
-	var file = req.files.files;
+	// var body = req.body.data
+
+	var file = req.files.files
+
 
 
 	// Initiate the upload
 	var uploader = s3Client.uploadFile({
-			localFile : file.path,
-			s3Params :{
-				Bucket : 'CherryNet',
-				Key : '/Legacy/' + photoAlbum,
-				ACL : 'public-read'
-			}
-		});
-
-
-
-
-		uploader.on('progress', function(){
-			console.log("progress", uploader.progressAmount, uploader.progressTotal);
-		});
-
-
-		uploader.on('end', function(){
-
-			var url = s3.getPublicUrlHttp('CherryNet', photoAlbum.name);
-			console.log('URL', url);
-				user.save(function(err, savedUser){
-					res.send(savedUser);
-				});
-
-			});
-
+		localFile: file.path,
+		s3Params: {
+			Bucket: 'legacyphotoalbum',
+			Key: '/legacyphotoalbum/' + file.name,
+			ACL: 'public-read'
 		}
+	});
+
+
+
+
+	uploader.on('progress', function() {
+		console.log("progress", uploader.progressAmount, uploader.progressTotal);
+	});
+
+
+	uploader.on('end', function() {
+
+		var url = s3.getPublicUrlHttp('legacyphotoalbum', file.name);
+		console.log('URL', url);
+		user.save(function(err, savedUser) {
+			res.send(savedUser);
+		});
+
+	});
+
+
+	console.log(req.body);
+	res.send('woohoo');
+
+
+}
 
 function getUsers (req, res){
 	console.log('params', req.params);
@@ -81,6 +83,16 @@ function updateUser (req, res){
 
 		});
 }
+
+
+//Get Credentials in Config\\
+// s3.config.credentials = new s3.CognitoIdentityCredentials();
+// s3.config.credentials.get(function(err) {
+//   if (err) console.log(err);
+//   else console.log(s3.config.credentials);
+// });
+
+
 
 module.exports = {
 	createUser : createUser,

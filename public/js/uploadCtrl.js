@@ -13,16 +13,9 @@ function uploadController ($scope, $http, Upload) {
     			data : $scope.newPic
     		}
         });
-    $http.post('/api/users', $scope.newPic)
-    	.then(function(returnData) {
-    		$scope.newPic = {};
-    	});
     };
-
 
     $scope.resizePic = function() {
         //make this true or false
     };
-
-
 }

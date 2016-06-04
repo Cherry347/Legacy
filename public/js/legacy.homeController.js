@@ -1,18 +1,18 @@
 angular.module('Legacy')
-	.controller('homeController', ['$scope', '$http', 'userFactory', homeController]);
+	.controller('homeController', ['$scope', '$http', 'userFactory', 'Upload', homeController]);
 
-function homeController ($scope, $http, userFactory){
+function homeController ($scope, $http, userFactory, Upload){
 
 
 	$scope.createUser = function(){
-		$http.post('/api/users', $scope.newUser)
-			.then(function(returnData){
-				$scope.users = $scope.users || [];
-				$scope.users.push(returnData.data);
-				$scope.newUser = {};
-			});
+		Upload.upload({
+			url : '/api/users',
+			data : {
+				files : $scope.newUser.userPic,
+				data : $scope.newUser
+			}
+		});
 	};
-
 
 	$scope.users = userFactory.User.query(function(data){
 			console.log('data: ', data);
@@ -20,11 +20,7 @@ function homeController ($scope, $http, userFactory){
 
 	$http.get('/api/users')
 		.then(function(returnData){
-			console.log('GET : ', returnData)
-			$scope.users = returnData.data
-		})
-
-	$scope.getUsers = function(){
-
-	}
+			console.log('GET : ', returnData);
+			$scope.users = returnData.data;
+		});
 }

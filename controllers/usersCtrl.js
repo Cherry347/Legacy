@@ -25,7 +25,7 @@ function createUser(req, res) {
 
 	// Initiate the upload
 	var uploader = s3Client.uploadFile({
-		// localFile: file.path,
+		localFile: file.path,
 		s3Params: {
 			Bucket: 'legacyphotoalbum',
 			Key: '/legacyphotoalbum/' + file.name,

@@ -111,5 +111,5 @@ module.exports = {
 	createUser : createUser,
 	getUsers : getUsers,
 	updateUser : updateUser,
-	// signIn: signIn
+	signIn: signIn
 };

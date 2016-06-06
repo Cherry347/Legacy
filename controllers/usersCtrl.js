@@ -60,7 +60,7 @@ function createUser(req, res) {
 
 function signIn (req, res) {
 	User.findOne({userName : req.body.userName}, function(err, user) {
-		console.log("req.boy === " ,req.body)
+		console.log("req.boy === " ,req)
 		if(err) {
 			res.json(err);
 		}

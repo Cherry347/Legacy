@@ -64,6 +64,7 @@ function signIn (req, res) {
 			res.json(err);
 		}
 		if(user) {
+			console.log("hello this is user", user)
 			// if(user.comparePassword(req.body.password)){
 			// 	var token= jwt.sign({userName: user.userName, id: user._id}, secret, {expiresIn: "7d"});
 				res.json({sucsess: true, message: "you're logged in!", user: user});

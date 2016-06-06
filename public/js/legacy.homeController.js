@@ -23,9 +23,9 @@ function homeController($scope, $http, userFactory, Upload, $state) {
 		});
 	};
 
-	$scope.users = userFactory.User.query(function(data) {
-		console.log('data: ', data);
-	});
+	// $scope.users = userFactory.User.query(function(data) {
+	// 	console.log('data: ', data);
+	// });
 
 	$http.get('/api/users')
 		.then(function(returnData) {
@@ -38,16 +38,13 @@ function homeController($scope, $http, userFactory, Upload, $state) {
 
 	$scope.userLogIn= function() {
 		$scope.thisUser = {userName: $scope.logIn.userName,
-      	password: $scope.logIn.userPassword}
-		console.log("this user= ", $scope.thisUser)
+      	password: $scope.logIn.userPassword};
 
       $http.post('/api/signIn',$scope.thisUser)
 
       .then(function(returnData){
-      	console.log("retrun data", returnData);
 		var id = returnData.data.user._id;
 		if(id) {
-			console.log("this is the id ", id)
 			$state.go('user', {id: id});
 		}
       });

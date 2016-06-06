@@ -14,7 +14,6 @@ var s3Client = s3.createClient({
 
 
 function createUser(req, res) {
-	console.log('BODY', req.body);
 
 	var file = req.files.files;
 
@@ -52,10 +51,6 @@ function createUser(req, res) {
 	});
 
 
-	console.log("req.body" ,req.body);
-	// res.send('woohoo');
-
-
 }
 
 function signIn (req, res) {
@@ -65,7 +60,6 @@ function signIn (req, res) {
 			res.json(err);
 		}
 		if(user) {
-			console.log("hello this is user", user)
 			// if(user.comparePassword(req.body.password)){
 			// 	var token= jwt.sign({userName: user.userName, id: user._id}, secret, {expiresIn: "7d"});
 				res.json({sucsess: true, message: "you're logged in!", user: user});

@@ -45,6 +45,7 @@ function homeController($scope, $http, userFactory, Upload, $state) {
       })
 
       .then(function(returnData){
+      	console.log(" data" , returnData)
       	if(returnData.data.success) {
       		window.location.href= "/users/:id";
       	}

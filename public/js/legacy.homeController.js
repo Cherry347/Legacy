@@ -14,12 +14,13 @@ function homeController($scope, $http, userFactory, Upload, $state) {
 				data: $scope.newUser
 
 			}
-		}).then(function(response){
-			console.log(response)
-			var id = response.data._id
-			$state.go('user', {id: id})
 		})
-		//
+
+		.then(function(response){
+			console.log(response);
+			var id = response.data._id;
+			$state.go('user', {id: id});
+		});
 	};
 
 	$scope.users = userFactory.User.query(function(data) {
@@ -45,13 +46,13 @@ function homeController($scope, $http, userFactory, Upload, $state) {
       })
 
       .then(function(returnData){
-      	console.log(" data" , returnData)
-      	if(returnData.data.success) {
-      		window.location.href= "/users/:id";
-      	}
-      	else {
-      		console.log(returnData);
-      	}
+      	console.log("retrun data", returnData);
+		var id = returnData.data._id;
+		$state.go('user', {id: id});
+      });
+
+
+
            //var token = response.data.token;
            //if(token){
            //  $window.localStorage.setItem('token',token)
@@ -59,6 +60,5 @@ function homeController($scope, $http, userFactory, Upload, $state) {
            //}else{
            //  console.log("no token found");
            //}
-      });
     };
 }

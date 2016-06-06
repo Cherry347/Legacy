@@ -41,12 +41,7 @@ function homeController($scope, $http, userFactory, Upload, $state) {
       	password: $scope.logIn.userPassword}
 		console.log("this user= ", $scope.thisUser)
 
-      $http.post('/api/signIn',{
-      	// userName: $scope.userName,
-      	// password: $scope.userPassword
-
-
-      })
+      $http.post('/api/signIn',$scope.thisUser)
 
       .then(function(returnData){
       	console.log("retrun data", returnData);

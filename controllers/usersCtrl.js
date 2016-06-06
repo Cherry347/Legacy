@@ -59,6 +59,7 @@ function createUser(req, res) {
 }
 
 function signIn (req, res) {
+	console.log("hello, signIn")
 	User.findOne({userName : req.body.userName}, function(err, user) {
 		if(err) {
 			res.json(err);

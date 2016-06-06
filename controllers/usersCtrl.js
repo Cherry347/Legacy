@@ -1,8 +1,9 @@
 var User    = require('../models/users.js');
 var s3      = require('s3');
-var jwt		= require("jsonwebtoken");
+// var jwt		= require("jsonwebtoken");
 
-var secret	= "Poptart";
+// var secret	= "PoptartIII";
+
 
 var s3Client = s3.createClient({
 	s3Options :{
@@ -14,8 +15,6 @@ var s3Client = s3.createClient({
 
 function createUser(req, res) {
 	console.log('BODY', req.body);
-
-	// var body = req.body.data
 
 	var file = req.files.files;
 
@@ -78,17 +77,17 @@ function signIn (req, res) {
 }
 
 
-
-
-
 function getUsers (req, res){
 	console.log('params', req.params);
 	if(req.params.userID){
 		User.findOne({_id : req.params.userID})
-			.exec(function(err, doc){
-				res.send(doc);
+			.exec(function(req, res){
+    			res.sendFile('/html/user.html', {root: './public'});
 			});
 	}
+
+
+
 	// Get MANY
 	else{
 		User.find({}, function(err, docs){
@@ -112,5 +111,5 @@ module.exports = {
 	createUser : createUser,
 	getUsers : getUsers,
 	updateUser : updateUser,
-	signIn: signIn
+	// signIn: signIn
 };

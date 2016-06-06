@@ -1,14 +1,22 @@
 angular.module('Legacy')
-  .config(['$routeProvider', function($routeProvider){
+  .config(routerConfig);
 
-    $routeProvider
-      .when('/', {
-        templateUrl : '../html/homeBody.html',
-        controller  : 'homeController'
-      })
-      .when('/users/:id', {
-        templateUrl : '/html/user.html',
-        controller  : 'userController'
-      })
 
-  }]);
+function routerConfig($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: '/html/homeBody.html',
+      controller: 'homeController',
+      // authorize: false
+    })
+    .state('user', {
+      url: '/users/:id',
+      templateUrl: '/html/user.html',
+      controller: 'userController',
+      // authorize: true
+    });
+
+  $urlRouterProvider.otherwise('/');
+
+}

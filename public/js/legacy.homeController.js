@@ -1,7 +1,7 @@
 angular.module('Legacy')
-	.controller('homeController', ['$scope', '$http', 'userFactory', 'Upload', homeController]);
+	.controller('homeController', ['$scope', '$http', 'userFactory', 'Upload','$state', homeController]);
 
-function homeController($scope, $http, userFactory, Upload) {
+function homeController($scope, $http, userFactory, Upload, $state) {
 
 
 //Sign Up
@@ -12,8 +12,12 @@ function homeController($scope, $http, userFactory, Upload) {
 			data: {
 				files: $scope.newUser.userPic,
 				data: $scope.newUser
+
 			}
-		});
+		}).then(function(response){
+			console.log(response)
+		})
+		// $state.go('')
 	};
 
 	$scope.users = userFactory.User.query(function(data) {
@@ -34,6 +38,7 @@ function homeController($scope, $http, userFactory, Upload) {
       $http.post('/api/users',{
       	userName: $scope.userName,
       	password: $scope.userPassword
+
 
       })
 

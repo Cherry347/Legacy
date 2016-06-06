@@ -84,7 +84,7 @@ function getUsers (req, res){
 	if(req.params.userID){
 		User.findOne({_id : req.params.userID})
 			.exec(function(req, res){
-    			res.sendFile('/html/user.html', {root: './public'});
+    			// res.sendFile('/html/user.html', {root: './public'});
 			});
 	}
 

@@ -45,13 +45,14 @@ function createUser(req, res) {
 		req.body.data.userPic = url;
 		User.create(req.body.data, function(err, user) {
 		console.log("user: ", user);
-		res.json(user)
+		// res.json(user)
+		res.send(user);
 	});
 
 	});
 
 
-	console.log(req.body);
+	console.log("req.body" ,req.body);
 	// res.send('woohoo');
 
 

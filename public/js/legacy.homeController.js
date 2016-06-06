@@ -37,17 +37,6 @@ function homeController($scope, $http, userFactory, Upload, $state) {
 //Log In
 
 	$scope.userLogIn= function() {
-		if($scope.logIn.userName.length) {
-		 console.log('username length: ', $scope.logIn.userName.length)
-		} else {
-		 console.log('username length: ', $scope.logIn.userName.length)
-		}
-		if($scope.logIn.userPassword.length){
-			console.log('password length: ', $scope.logIn.userPassword.length)
-		}
-
-
-
 
       $http.post('/api/signIn',{
       	userName: $scope.userName,

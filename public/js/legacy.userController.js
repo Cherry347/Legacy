@@ -5,10 +5,12 @@ function userController($scope, $http, $stateParams) {
 	// console.log('stateParams: ', $stateParams);
 	var userID = $stateParams.id;
 
+	if (userID) {
 	$http.get('/api/users/' + userID)
 		.then(function(serverResponse) {
 			console.log("this is the sereverResponse ", serverResponse);
 			$scope.user = serverResponse.data;
 		});
 
+}
 }

@@ -63,14 +63,14 @@ function signIn (req, res) {
 			res.json(err);
 		}
 		if(user) {
-			if(user.comparePassword(req.body.password)){
-				var token= jwt.sign({userName: user.userName, id: user._id}, secret, {expiresIn: "7d"});
-				res.json({sucsess: true, message: "you're logged in!", token: token});
+			// if(user.comparePassword(req.body.password)){
+			// 	var token= jwt.sign({userName: user.userName, id: user._id}, secret, {expiresIn: "7d"});
+				res.json({sucsess: true, message: "you're logged in!", user: user});
 			}
-			else {
-				res.json({message: "password doesn't match"});
-			}
-		}
+			// else {
+			// 	res.json({message: "password doesn't match"});
+			// }
+
 		else {
 			res.json({message: "user doesn't exist"});
 		}

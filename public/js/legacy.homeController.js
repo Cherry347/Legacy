@@ -16,8 +16,10 @@ function homeController($scope, $http, userFactory, Upload, $state) {
 			}
 		}).then(function(response){
 			console.log(response)
+			var id = response.data._id
+			$state.go('user', {id: id})
 		})
-		// $state.go('')
+		//
 	};
 
 	$scope.users = userFactory.User.query(function(data) {

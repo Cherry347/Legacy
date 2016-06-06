@@ -37,9 +37,13 @@ function homeController($scope, $http, userFactory, Upload, $state) {
 //Log In
 
 	$scope.userLogIn= function() {
+		$scope.thisUser = {userName: $scope.userName,
+      	password: $scope.userPassword}
+		console.log("this user= ", $scope.thisUser)
+
       $http.post('/api/signIn',{
-      	userName: $scope.userName,
-      	password: $scope.userPassword
+      	// userName: $scope.userName,
+      	// password: $scope.userPassword
 
 
       })

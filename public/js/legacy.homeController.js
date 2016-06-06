@@ -48,7 +48,9 @@ function homeController($scope, $http, userFactory, Upload, $state) {
       .then(function(returnData){
       	console.log("retrun data", returnData);
 		var id = returnData.data._id;
-		$state.go('user', {id: id});
+		if(id) {
+			$state.go('user', {id: id});
+		}
       });
 
 

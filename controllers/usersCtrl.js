@@ -3,12 +3,12 @@ var s3      		= require('s3');
 var bcrypt  		= require('bcryptjs');
 var passport    	= require('passport');
 var LocalStrategy	= require('passport-local').Strategy;
+var session         = require('express-session');
 var express 		= require('express');
 var app 			= express();
 
 
 /** Express Session Setup **/
-var session = require('express-session');
 app.sessionMiddleware = session({
   secret: process.env.PASSSECRET,
   resave: false,
@@ -172,6 +172,7 @@ function createUser(req, res) {
 function signIn (req, res, next) {
     console.log("signIn: working"  )
 	User.findOne({userName : req.body.userName}, function(err, user) {
+	   console.log("user ***", user)
 		if(err) {
 			res.json(err);
 		}

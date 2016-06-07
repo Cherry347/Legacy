@@ -4,7 +4,7 @@ var logger      = require('morgan');
 var mongoose    = require('mongoose');
 var multiparty  = require('connect-multiparty');
 var usersCtrl   = require('./controllers/usersCtrl.js');
-
+var fs          = require("fs");
 
 
 var app = express();

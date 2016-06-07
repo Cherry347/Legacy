@@ -39,6 +39,7 @@ function homeController($scope, $http, userFactory, Upload, $state) {
       $http.post('/api/signIn',$scope.thisUser)
 
       .then(function(returnData){
+      	console.log("returnData ", returnData)
 		var id = returnData.data.user._id;
 		if(id) {
 			$state.go('user', {id: id});

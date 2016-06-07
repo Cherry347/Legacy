@@ -11,6 +11,6 @@ function userController($scope, $http, $stateParams) {
 			console.log("this is the sereverResponse ", serverResponse);
 			$scope.user = serverResponse.data;
 		});
-
-}
+	timeline = new TL.Timeline('timeline-embed', '/sample_json.json');
+	}
 }

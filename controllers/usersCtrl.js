@@ -174,6 +174,7 @@ function signIn (req, res, next) {
 	User.findOne({userName : req.body.userName}, function(err, user) {
 	   console.log("user ***", user)
 		if(err) {
+		    console.log("Here is the ERR...", err)
 			res.json(err);
 		}
 		if(user) {

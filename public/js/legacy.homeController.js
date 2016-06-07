@@ -19,7 +19,7 @@ function homeController($scope, $http, userFactory, Upload, $state) {
 		.then(function(response){
 			console.log("this is the resopnse ***", response);
 			var id = response.data._id;
-			// $state.go('user', {id: id});
+			$state.go('user', {id: id});
 		});
 	};
 

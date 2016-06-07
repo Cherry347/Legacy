@@ -103,6 +103,7 @@ passport.authenticate('local', function(err, user, info) {
 
 
 app.get('/api/users', app.isAuthenticated, function(req, res){
+	console.log("hello");
     res.sendFile('/users/:id', {root: './public'});
 });
 

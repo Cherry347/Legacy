@@ -24,84 +24,84 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/public'));
 
-/** Express Session Setup **/
-var session = require('express-session');
-app.sessionMiddleware = session({
-  secret: process.env.PASSSECRET,
-  resave: false,
-  saveUninitialized: true,
-});
-app.use(app.sessionMiddleware);
+// /** Express Session Setup **/
+// var session = require('express-session');
+// app.sessionMiddleware = session({
+//   secret: process.env.PASSSECRET,
+//   resave: false,
+//   saveUninitialized: true,
+// });
+// app.use(app.sessionMiddleware);
 
 
-/** End Express Session Setup **/
-
-
-
-/** Passport Config **/
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
-    });
-});
-
-passport.use(new LocalStrategy(
-    function(username, password, done) {
-        User.findOne({ username: username }, function (err, user) {
-            if (err) { return done(err); }
-            if (!user) {
-                return done(null, false);
-            }
-
-            bcrypt.compare(password, user.password, function(error, matched){
-                if (matched === true){
-                    return done(null,user);
-                }
-                else {
-                    return done(null, false);
-                }
-            });
-        });
-    }
-));
+// /** End Express Session Setup **/
 
 
 
-/** End Passport Config **/
+// /** Passport Config **/
+
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+
+// passport.serializeUser(function(user, done) {
+//     done(null, user.id);
+// });
+
+// passport.deserializeUser(function(id, done) {
+//     User.findById(id, function(err, user) {
+//         done(err, user);
+//     });
+// });
+
+// passport.use(new LocalStrategy(
+//     function(username, password, done) {
+//         User.findOne({ username: username }, function (err, user) {
+//             if (err) { return done(err); }
+//             if (!user) {
+//                 return done(null, false);
+//             }
+
+//             bcrypt.compare(password, user.password, function(error, matched){
+//                 if (matched === true){
+//                     return done(null,user);
+//                 }
+//                 else {
+//                     return done(null, false);
+//                 }
+//             });
+//         });
+//     }
+// ));
+
+
+
+// /** End Passport Config **/
 
 
 
 
-/** Middleware **/
-app.isAuthenticated = function(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
+// /** Middleware **/
+// app.isAuthenticated = function(req, res, next){
+//     if(req.isAuthenticated()){
+//         return next();
+//     }
 
-    console.log('get outta here!');
-    res.redirect('/');
-};
-
-
-app.isAuthenticatedAjax = function(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.send({error:'not logged in'});
-};
+//     console.log('get outta here!');
+//     res.redirect('/');
+// };
 
 
+// app.isAuthenticatedAjax = function(req, res, next){
+//     if(req.isAuthenticated()){
+//         return next();
+//     }
+//     res.send({error:'not logged in'});
+// };
 
-/** END Middleware **/
+
+
+// /** END Middleware **/
 
 
 // Routes \\

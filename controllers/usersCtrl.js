@@ -1,9 +1,10 @@
-var User    	= require('../models/users.js');
-var s3      	= require('s3');
-var bcrypt  	= require('bcryptjs');
-var passport    = require('passport');
-var express 	= require('express');
-var app 		= express();
+var User    		= require('../models/users.js');
+var s3      		= require('s3');
+var bcrypt  		= require('bcryptjs');
+var passport    	= require('passport');
+var LocalStrategy	= require('passport-local').Strategy;
+var express 		= require('express');
+var app 			= express();
 
 
 /** Express Session Setup **/

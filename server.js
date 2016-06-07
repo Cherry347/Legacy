@@ -42,4 +42,23 @@ var port = process.env.PORT || 80;
 app.listen(port, function(){
   console.log('Server running on port ' + port);
 
+
+
 })
+
+
+// HTTPS Setup //
+try {
+
+    var credentials = {
+      key: fs.readFileSync('/etc/letsencrypt/live/loristill.io/privkey.pem'),
+      cert: fs.readFileSync('/etc/letsencrypt/live/loristill.io/cert.pem')
+    };
+
+    https.createServer(credentials, app).listen(443);
+}
+catch(error){
+    console.log('HTTPS setup failed.')
+    console.log('=-=-=-=-=-=-=-=-=-=-=')
+    console.log(error)
+}

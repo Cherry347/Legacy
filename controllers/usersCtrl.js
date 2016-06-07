@@ -16,19 +16,19 @@ var s3Client = s3.createClient({
 
 function createUser(req, res) {
 
-	// var file = req.files.files;
+	var file = req.files.files;
 
 
 
-	// // Initiate the upload
-	// var uploader = s3Client.uploadFile({
-	// 	localFile: file.path,
-	// 	s3Params: {
-	// 		Bucket: 'legacyphotoalbum',
-	// 		Key: '/legacyphotoalbum/' + file.name,
-	// 		ACL: 'public-read'
-	// 	}
-	// });
+	// Initiate the upload
+	var uploader = s3Client.uploadFile({
+		localFile: file.path,
+		s3Params: {
+			Bucket: 'legacyphotoalbum',
+			Key: '/legacyphotoalbum/' + file.name,
+			ACL: 'public-read'
+		}
+	});
 
 	    bcrypt.genSalt(11, function(error, salt){
         bcrypt.hash(req.body.password, salt, function(hashError, hash){
@@ -42,11 +42,11 @@ function createUser(req, res) {
                     req.login(user, function(loginErr){
                         if ( loginErr ) { res.send({ err:loginErr }) }
                         else { res.send({success: 'success'}) }
-                    })
+                    });
                 }
-            })
-        })
-    })
+            });
+        });
+    });
 
 
 

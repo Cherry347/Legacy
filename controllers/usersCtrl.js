@@ -79,18 +79,18 @@ function createUser(req, res) {
 }
 
 function signIn (req, res, next) {
-// 	User.findOne({userName : req.body.userName}, function(err, user) {
-// 		if(err) {
-// 			res.json(err);
-// 		}
-// 		if(user) {
-// 				res.json({sucsess: true, message: "you're logged in!", user: user});
-// 			}
-// 		else {
-// 			res.json({message: "user doesn't exist"});
-// 		}
-// 	})
-// }
+	User.findOne({userName : req.body.userName}, function(err, user) {
+		if(err) {
+			res.json(err);
+		}
+		if(user) {
+				res.json({sucsess: true, message: "you're logged in!", user: user});
+			}
+		else {
+			res.json({message: "user doesn't exist"});
+		}
+	})
+}
 
 
 passport.authenticate('local', function(err, user, info) {

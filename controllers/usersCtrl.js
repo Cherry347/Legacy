@@ -196,19 +196,19 @@ function signIn (req, res, next) {
 // }
 
 
-app.get('/api/users', app.isAuthenticated, function(req, res){
-	console.log("hello");
-    res.sendFile('/users/:id', {root: './public'});
-});
+// app.get('/api/users', app.isAuthenticated, function(req, res){
+// 	console.log("hello");
+//     res.sendFile('/users/:id', {root: './public'});
+// });
 
-app.get('/api/me', app.isAuthenticatedAjax, function(req, res){
-    res.send({user:req.user});
-});
+// app.get('/api/me', app.isAuthenticatedAjax, function(req, res){
+//     res.send({user:req.user});
+// });
 
-// Stupid simple err catcher
-app.use(function(req, res){
-    res.send({err : 'Something bad happened'});
-});
+// // Stupid simple err catcher
+// app.use(function(req, res){
+//     res.send({err : 'Something bad happened'});
+// });
 
 
 

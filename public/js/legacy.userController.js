@@ -2,7 +2,6 @@ angular.module('Legacy')
 	.controller('userController', ['$scope', '$http', '$stateParams', userController]);
 
 function userController($scope, $http, $stateParams) {
-	// console.log('stateParams: ', $stateParams);
 	var userID = $stateParams.id;
 
 	if (userID) {

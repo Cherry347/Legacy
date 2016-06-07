@@ -23,10 +23,6 @@ function homeController($scope, $http, userFactory, Upload, $state) {
 		});
 	};
 
-	// $scope.users = userFactory.User.query(function(data) {
-	// 	console.log('data: ', data);
-	// });
-
 	$http.get('/api/users')
 		.then(function(returnData) {
 			console.log('GET : ', returnData);
@@ -48,15 +44,5 @@ function homeController($scope, $http, userFactory, Upload, $state) {
 			$state.go('user', {id: id});
 		}
       });
-
-
-
-           //var token = response.data.token;
-           //if(token){
-           //  $window.localStorage.setItem('token',token)
-           //  $state.go('user')
-           //}else{
-           //  console.log("no token found");
-           //}
     };
 }

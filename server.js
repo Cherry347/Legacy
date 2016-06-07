@@ -37,32 +37,6 @@ app.post('/api/users/:userID', usersCtrl.updateUser);
 
 
 
-//Auth User
-// app.use(authorize);
-
-// function authorize(req, res, next){
-//     var token= req.body.token || req.params.token || req.headers["x-access-token"];
-//     if(token){
-//         if(err) {
-//             console.log("can't auth token")
-//             return res.status(403).send({sucsess: false, message: "can't auth taken"});
-//         }
-//         else {
-//             req.decode= decoded;
-//             next();
-//         }
-//     }
-//     else {
-//         console.log("no token provided")
-//         return res.status(403).send({sucsess: false, message: "no token provided"});
-//     }
-// }
-
-
-
-
-
-
 // Creating Server and Listening for Connections \\
 var port = process.env.PORT || 80;
 app.listen(port, function(){

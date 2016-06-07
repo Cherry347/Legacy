@@ -103,7 +103,7 @@ passport.authenticate('local', function(err, user, info) {
     })(req, res, next);
 }
 
-app.get('/users', app.isAuthenticated, function(req, res){
+app.get('/api/users', app.isAuthenticated, function(req, res){
     res.sendFile('/users/:id', {root: './public'});
 });
 
@@ -120,15 +120,15 @@ app.use(function(req, res){
 
 
 
-// function getUsers (req, res){
-// 	console.log('params', req.params);
-// 	if(req.params.userID){
-// 		User.findOne({_id : req.params.userID})
-// 			.exec(function(req, res){
-// 			});
-// 	}
+function getUsers (req, res){
+	console.log('params', req.params);
+	if(req.params.userID){
+		User.findOne({_id : req.params.userID})
+			.exec(function(req, res){
+			});
+	}
 
-
+}
 
 
 
@@ -146,6 +146,7 @@ function updateUser (req, res){
 
 module.exports = {
 	createUser : createUser,
+	getUsers : getUsers,
 	updateUser : updateUser,
 	signIn: signIn
 };

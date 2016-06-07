@@ -110,8 +110,8 @@ app.isAuthenticatedAjax = function(req, res, next){
 app.post('/api/signIn', usersCtrl.signIn);
 
 // // GET
-// app.get('/api/users', usersCtrl.getUsers);
-// app.get('/api/users/:userID', usersCtrl.getUsers);
+app.get('/api/users', usersCtrl.getUsers);
+app.get('/api/users/:userID', usersCtrl.getUsers);
 
 
 //POST

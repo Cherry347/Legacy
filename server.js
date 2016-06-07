@@ -10,6 +10,7 @@ var https           = require("https");
 var passport        = require('passport');
 var bcrypt          = require('bcryptjs');
 var LocalStrategy   = require('passport-local').Strategy;
+var InstagramStrategy= require('passport-instagram').Strategy;
 
 
 var app = express();
@@ -77,6 +78,20 @@ passport.deserializeUser(function(id, done) {
 
 
 // /** End Passport Config **/
+
+
+passport.use(new InstagramStrategy({
+    clientID: process.env.INSTAGRAM_CLIENT_ID,
+    clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
+    callbackURL: "https://loristill.io/#/users/approved"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ instagramId: profile.id }, function (err, user) {
+      console.log("user instagram ", user)
+      return done(err, user);
+    });
+  }
+));
 
 
 

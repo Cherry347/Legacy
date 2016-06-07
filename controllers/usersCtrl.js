@@ -64,27 +64,27 @@ passport.use(new LocalStrategy(
 
 
 
-/** Middleware **/
-app.isAuthenticated = function(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
+// /** Middleware **/
+// app.isAuthenticated = function(req, res, next){
+//     if(req.isAuthenticated()){
+//         return next();
+//     }
 
-    console.log('get outta here!');
-    res.redirect('/');
-};
-
-
-app.isAuthenticatedAjax = function(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.send({error:'not logged in'});
-};
+//     console.log('get outta here!');
+//     res.redirect('/');
+// };
 
 
+// app.isAuthenticatedAjax = function(req, res, next){
+//     if(req.isAuthenticated()){
+//         return next();
+//     }
+//     res.send({error:'not logged in'});
+// };
 
-/** END Middleware **/
+
+
+// /** END Middleware **/
 
 
 

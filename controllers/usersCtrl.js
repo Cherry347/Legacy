@@ -5,37 +5,37 @@ var passport    	= require('passport');
 var LocalStrategy	= require('passport-local').Strategy;
 var session         = require('express-session');
 var express 		= require('express');
-var app 			= express();
+// var app 			= express();
 
 
-/** Express Session Setup **/
-app.sessionMiddleware = session({
-  secret: process.env.PASSSECRET,
-  resave: false,
-  saveUninitialized: true,
-});
-app.use(app.sessionMiddleware);
+// /** Express Session Setup **/
+// app.sessionMiddleware = session({
+//   secret: process.env.PASSSECRET,
+//   resave: false,
+//   saveUninitialized: true,
+// });
+// app.use(app.sessionMiddleware);
 
 
-/** End Express Session Setup **/
+// /** End Express Session Setup **/
 
 
 
-/** Passport Config **/
+// /** Passport Config **/
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
+// passport.serializeUser(function(user, done) {
+//     done(null, user.id);
+// });
 
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
-    });
-});
+// passport.deserializeUser(function(id, done) {
+//     User.findById(id, function(err, user) {
+//         done(err, user);
+//     });
+// });
 
 passport.use(new LocalStrategy(
     function(username, password, done) {

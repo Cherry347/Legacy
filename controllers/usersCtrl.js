@@ -89,7 +89,7 @@ function signIn (req, res, next) {
 		else {
 			res.json({message: "user doesn't exist"});
 		}
-	})
+	});
 }
 
 
@@ -100,8 +100,8 @@ passport.authenticate('local', function(err, user, info) {
             if (err) { return next(err); }
             return res.send({success:'success'});
         });
-    })(req, res, next);
-}
+    })
+    (req, res, next);
 
 app.get('/api/users', app.isAuthenticated, function(req, res){
     res.sendFile('/users/:id', {root: './public'});

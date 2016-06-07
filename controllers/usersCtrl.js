@@ -90,9 +90,6 @@ function signIn (req, res, next) {
 			res.json({message: "user doesn't exist"});
 		}
 	});
-}
-
-
 passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err); }
         if (!user) { return res.send({error : 'something went wrong :('}); }
@@ -102,6 +99,8 @@ passport.authenticate('local', function(err, user, info) {
         });
     })
     (req, res, next);
+}
+
 
 app.get('/api/users', app.isAuthenticated, function(req, res){
     res.sendFile('/users/:id', {root: './public'});

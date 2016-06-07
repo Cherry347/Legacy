@@ -121,6 +121,23 @@ app.post('/api/users', multiparty(), usersCtrl.createUser);
 app.post('/api/users/:userID', usersCtrl.updateUser);
 
 
+app.get('/api/users', app.isAuthenticated, function(req, res){
+	console.log("hello");
+    res.sendFile('/users/:id', {root: './public'});
+});
+
+app.get('/api/me', app.isAuthenticatedAjax, function(req, res){
+    res.send({user:req.user});
+});
+
+// Stupid simple err catcher
+app.use(function(req, res){
+    res.send({err : 'Something bad happened'});
+});
+
+
+
+
 
 // Creating Server and Listening for Connections \\
 var port = process.env.PORT || 80;

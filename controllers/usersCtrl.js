@@ -170,6 +170,7 @@ function createUser(req, res) {
 }
 
 function signIn (req, res, next) {
+    console.log("signIn: working"  )
 	User.findOne({userName : req.body.userName}, function(err, user) {
 		if(err) {
 			res.json(err);

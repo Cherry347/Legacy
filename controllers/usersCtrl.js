@@ -121,23 +121,7 @@ function createUser(req, res) {
 		}
 	});
 
-	    bcrypt.genSalt(11, function(error, salt){
-        bcrypt.hash(req.body.password, salt, function(hashError, hash){
-            var newUser = new User({
-                username: req.body.username,
-                password: hash,
-            });
-            newUser.save(function(saveErr, user){
-                if ( saveErr ) { res.send({ err:saveErr }) }
-                else {
-                    req.login(user, function(loginErr){
-                        if ( loginErr ) { res.send({ err:loginErr }) }
-                        else { res.send({success: 'success'}) }
-                    });
-                }
-            });
-        });
-    });
+
 
 
 
@@ -159,10 +143,21 @@ function createUser(req, res) {
 		var url = s3.getPublicUrlHttp('legacyphotoalbum', file.name);
 		console.log('URL', url);
 		req.body.data.userPic = url;
-		User.create(req.body.data, function(err, user) {
-		console.log("user: ", user);
-		res.send(user);
-	});
+		 bcrypt.genSalt(11, function(error, salt){
+            bcrypt.hash(req.body.data.password, salt, function(hashError, hash){
+                req.body.data.password = hash;
+                var newUser = new User(req.body.data);
+                newUser.save(function(saveErr, user){
+                    if ( saveErr ) { res.send({ err:saveErr }) }
+                    else {
+                        req.login(user, function(loginErr){
+                            if ( loginErr ) { res.send({ err:loginErr }) }
+                            else { res.send(user) }
+                        });
+                    }
+                });
+            });
+        });
 
 	});
 

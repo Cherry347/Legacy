@@ -19,22 +19,27 @@
 
 <h3>hello {{user.firstName}}</h3>
 
-<div id='timeline-embed' style="width: 100%; height: 600px"></div>
+
+ <div id="timeline-embed">
+    <div id="timeline"></div>
+  </div>
 
 
-<script>
-    $(document).ready(function(){
-        var embed = document.getElementById('timeline-embed');
-        embed.style.height = getComputedStyle(document.body).height;
-        window.timeline = new TL.Timeline('timeline-embed', '../sample_json.json', { hash_bookmark: false});
-        window.addEventListener('resize', function() {
-          var embed = document.getElementById('timeline-embed');
-          embed.style.height = getComputedStyle(document.body).height;
-          timeline.updateDisplay();
-        })
-      });
-  </script>
+<!--<div id='timeline-embed' style="width: 100%; height: 600px"></div>-->
 
+
+
+<script type="text/javascript">
+      // The TL.Timeline constructor takes at least two arguments:
+      // the id of the Timeline container (no '#'), and
+      // the URL to your JSON data file or Google spreadsheet.
+      // the id must refer to an element "above" this code,
+      // and the element must have CSS styling to give it width and height
+      // optionally, a third argument with configuration options can be passed.
+      // See below for more about options.
+      timeline = new TL.Timeline('timeline-embed',
+        'https://docs.google.com/spreadsheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml');
+    </script>
 
 
 

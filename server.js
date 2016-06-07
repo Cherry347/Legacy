@@ -81,23 +81,23 @@ passport.deserializeUser(function(id, done) {
 
 
 
-// /** Middleware **/
-// app.isAuthenticated = function(req, res, next){
-//     if(req.isAuthenticated()){
-//         return next();
-//     }
+/** Middleware **/
+app.isAuthenticated = function(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
 
-//     console.log('get outta here!');
-//     res.redirect('/');
-// };
+    console.log('get outta here!');
+    res.redirect('/');
+};
 
 
-// app.isAuthenticatedAjax = function(req, res, next){
-//     if(req.isAuthenticated()){
-//         return next();
-//     }
-//     res.send({error:'not logged in'});
-// };
+app.isAuthenticatedAjax = function(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.send({error:'not logged in'});
+};
 
 
 

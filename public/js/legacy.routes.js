@@ -8,13 +8,11 @@ function routerConfig($stateProvider, $urlRouterProvider, $httpProvider, $locati
       url: '/',
       templateUrl: '/html/homeBody.html',
       controller: 'homeController',
-      // authorize: false
     })
     .state('user', {
       url: '/users/:id',
       templateUrl: '/html/user.html',
       controller: 'userController',
-      // authorize: true
     });
 
   $urlRouterProvider.otherwise('/');

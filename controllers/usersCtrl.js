@@ -1,9 +1,5 @@
 var User    = require('../models/users.js');
 var s3      = require('s3');
-// var jwt		= require("jsonwebtoken");
-
-// var secret	= "PoptartIII";
-
 
 var s3Client = s3.createClient({
 	s3Options :{
@@ -44,7 +40,6 @@ function createUser(req, res) {
 		req.body.data.userPic = url;
 		User.create(req.body.data, function(err, user) {
 		console.log("user: ", user);
-		// res.json(user)
 		res.send(user);
 	});
 
@@ -55,19 +50,12 @@ function createUser(req, res) {
 
 function signIn (req, res) {
 	User.findOne({userName : req.body.userName}, function(err, user) {
-		console.log("req.boy === " ,req)
 		if(err) {
 			res.json(err);
 		}
 		if(user) {
-			// if(user.comparePassword(req.body.password)){
-			// 	var token= jwt.sign({userName: user.userName, id: user._id}, secret, {expiresIn: "7d"});
 				res.json({sucsess: true, message: "you're logged in!", user: user});
 			}
-			// else {
-			// 	res.json({message: "password doesn't match"});
-			// }
-
 		else {
 			res.json({message: "user doesn't exist"});
 		}
@@ -80,7 +68,6 @@ function getUsers (req, res){
 	if(req.params.userID){
 		User.findOne({_id : req.params.userID})
 			.exec(function(req, res){
-    			// res.sendFile('/html/user.html', {root: './public'});
 			});
 	}
 

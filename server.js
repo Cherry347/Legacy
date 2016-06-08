@@ -86,11 +86,25 @@ passport.use(new InstagramStrategy({
     callbackURL: "https://loristill.io/users/approved"
   },
   function(accessToken, refreshToken, profile, done) {
-      console.log("this is User: ", User)
-    User.findOrCreate({ instagramId: profile.id },function (err, user) {
-      console.log("user instagram ", user)
-      return done(err, user);
-    });
+
+      console.log("accessToken: ", accessToken)
+      console.log("refreshToken: ", refreshToken)
+      console.log("profile: ", profile)
+
+    User.findOne({ instagramId: profile.id },function (err, user) {
+        if(!user) {
+            User.create('')
+        }
+        })
+
+
+
+
+
+    // User.findOrCreate({ instagramId: profile.id },function (err, user) {
+    //   console.log("user instagram ", user)
+    //   return done(err, user);
+    // });
   }
 ));
 

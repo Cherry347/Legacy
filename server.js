@@ -94,17 +94,32 @@ passport.use(new InstagramStrategy({
 ));
 
 
-
+//Instagram Auth\\
 
 app.get('/auth/instagram',
   passport.authenticate('instagram'));
 
 app.get('/auth/instagram/callback',
-  passport.authenticate('instagram', { failureRedirect: '/api/users' }),
+  passport.authenticate('instagram', function(err, user){
+
+      console.log(user);
+
+      if (err) {
+          return res.redirect('/api/users/');
+      }
+      if (!user) {
+          return res.redirect('/api/users/')
+      }
+      req.login(user, function (err) {
+         return res.redirect('/api/users/:userID')
+      });
+
+  }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/api/users/:userID');
-  });
+
+  })(req, res, next);
 
 
 

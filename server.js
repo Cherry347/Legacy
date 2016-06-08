@@ -86,7 +86,8 @@ passport.use(new InstagramStrategy({
     callbackURL: "https://loristill.io/users/approved"
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ instagramId: profile.id }, function (err, user) {
+      console.log("this is User: ", User)
+    User.findOrCreate({ instagramId: profile.id },function (err, user) {
       console.log("user instagram ", user)
       return done(err, user);
     });

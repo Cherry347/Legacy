@@ -83,7 +83,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new InstagramStrategy({
     clientID: process.env.INSTAGRAM_CLIENT_ID,
     clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
-    callbackURL: "https://loristill.io/users/approved"
+    callbackURL: "https://loristill.io/auth/instagram/callback"
   },
   function(accessToken, refreshToken, profile, done) {
 

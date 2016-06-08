@@ -123,8 +123,10 @@ app.get('/auth/instagram',
 // })
 
 app.get('/users/approved', function (req, res, next) {
+    console.log("made it users/approved")
    passport.authenticate('instagram', function(err, user){
-       console.log(user);
+
+       console.log("user *** ",user);
 
       if (err) {
           return res.redirect('/api/users/');

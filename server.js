@@ -157,7 +157,9 @@ function apiResponse (err, res, body) {
     console.log(" ERR : ", err)
 
     // var json = JSON.parse(body);
-    console.dir("THIS IS THE API RESPONSE ***** ", body);
+    console.log("THIS IS THE API BODY ***** ", body);
+    console.log(" 1 THIS IS THE API RESPONSE ***** ", res)
+
 }
 
 request('https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=' + process.env.TOKEN, apiResponse);

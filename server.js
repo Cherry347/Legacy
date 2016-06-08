@@ -153,11 +153,11 @@ app.listen(port, function(){
 
 
 //Instagram Api Requests\\
-console.log("this is the user token : ", process.env.TOKEN)
+console.log("this is the user token : ", process.env.TOKEN);
 
 function apiResponse (err, res, body) {
 
-    console.log(" ERR : ", err)
+    console.log(" ERR : ", err);
 
     // var json = JSON.parse(body);
     console.log(" #2 THIS IS THE API BODY ***** ", body);

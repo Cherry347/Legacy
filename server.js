@@ -150,15 +150,17 @@ app.listen(port, function(){
 
 
 //Instagram Api Requests\\
-
-request('https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=' + User.accessToken, apiResponse);
+console.log("this is the user token : ", process.env.TOKEN)
 
 function apiResponse (err, res, body) {
+
+    console.log(" ERR : ", err)
+
     var json = JSON.parse(body);
-    console.dir(json);
+    console.dir("THIS IS THE API RESPONSE ***** ", json);
 }
 
-console.log("THIS IS THE API RESPONSE ***** ", apiResponse);
+request('https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=' + process.env.TOKEN, apiResponse);
 
 
 

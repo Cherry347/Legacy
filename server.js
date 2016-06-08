@@ -93,7 +93,11 @@ passport.use(new InstagramStrategy({
 
     User.findOne({ instagramId: profile.id },function (err, user) {
         if(!user) {
+            console.log("no user found")
             User.create('')
+        }
+        else {
+            console.log("user was found")
         }
         })
 

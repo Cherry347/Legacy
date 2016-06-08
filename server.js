@@ -84,7 +84,7 @@ console.log(" Profile : ", profile)
 
 app.get('/auth/instagram',
   passport.authenticate('instagram', {
-      scope: ['comments', 'relationships', 'pubic_content', 'likes']
+      scope: ['comments', 'relationships', 'public_content', 'likes']
   }));
 
 app.get('/auth/instagram/callback', passport.authenticate('instagram', {failureRedirect: '/'}), function(req, res){

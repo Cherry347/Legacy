@@ -94,10 +94,12 @@ passport.use(new InstagramStrategy({
     User.findOne({ instagramId: profile.id },function (err, user) {
         if(!user) {
             console.log("no user found")
-            User.create('')
+            User.create({inst_id: profile.id, accessToken: accessToken }, function(err, newuser){
+                done(null, newuser)
+            })
         }
         else {
-            console.log("user was found")
+            done(null, user)
         }
         })
 
@@ -145,7 +147,7 @@ app.get('/users/approved',
   passport.authenticate('instagram', {failureRedirect: '/api/users', sucessRedirect: '/authLoggedIn'}));
 
 app.get('/authLoggedIn', function(req, res){
-    res.redirect('/users/approved' + req.user._id)
+    res.redirect('/#/users/' + req.user._id)
 })
 
 

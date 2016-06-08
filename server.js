@@ -151,7 +151,7 @@ app.listen(port, function(){
 
 //Instagram Api Requests\\
 
-request('https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=User.accessToken', apiResponse);
+request('https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=' + User.accessToken, apiResponse);
 
 function apiResponse (err, res, body) {
     var json = JSON.parse(body);

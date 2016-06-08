@@ -151,13 +151,20 @@ app.listen(port, function(){
 
 //Instagram Api Requests\\
 
-var instagramSearch= function(){
-        console.log('searching***');
-        app.get('https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=User.accessToken')
-        .then(function(response){
-          console.log("Response *** : ", response.data)
-        })
-      }
+        app.get('https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=User.accessToken', function(req, res) {
+
+            console.log("***this is res*** :", res)
+
+            res.send({"data": {}});
+        });
+
+
+
+
+    //     .then(function(response){
+    //       console.log("Response *** : ", response.data)
+    //     })
+    //   }
 
 
 

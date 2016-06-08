@@ -143,8 +143,7 @@ app.get('/auth/instagram',
 // });
 
 
-app.get('/users/approved',
-  passport.authenticate('instagram', {failureRedirect: '/api/users', sucessRedirect: '/authLoggedIn'}));
+app.get('/auth/instagram/callback', passport.authenticate('instagram', {failureRedirect: '/', sucessRedirect: '/authLoggedIn'}));
 
 app.get('/authLoggedIn', function(req, res){
     res.redirect('/#/users/' + req.user._id)

@@ -55,28 +55,6 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
-// passport.use(new LocalStrategy(
-//     function(username, password, done) {
-//         User.findOne({ username: username }, function (err, user) {
-//             if (err) { return done(err); }
-//             if (!user) {
-//                 return done(null, false);
-//             }
-
-//             bcrypt.compare(password, user.password, function(error, matched){
-//                 if (matched === true){
-//                     return done(null,user);
-//                 }
-//                 else {
-//                     return done(null, false);
-//                 }
-//             });
-//         });
-//     }
-// ));
-
-
-
 // /** End Passport Config **/
 
 
@@ -87,30 +65,16 @@ passport.use(new InstagramStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
 
-      console.log("accessToken: ", accessToken)
-      console.log("refreshToken: ", refreshToken)
-      console.log("profile: ", profile)
-
     User.findOne({ instagramId: profile.id },function (err, user) {
         if(!user) {
-            console.log("no user found")
             User.create({inst_id: profile.id, accessToken: accessToken }, function(err, newuser){
-                done(null, newuser)
-            })
+                done(null, newuser);
+            });
         }
         else {
-            done(null, user)
+            done(null, user);
         }
-    })
-
-
-
-
-
-    // User.findOrCreate({ instagramId: profile.id },function (err, user) {
-    //   console.log("user instagram ", user)
-    //   return done(err, user);
-    // });
+    });
   }
 ));
 
@@ -120,41 +84,10 @@ passport.use(new InstagramStrategy({
 app.get('/auth/instagram',
   passport.authenticate('instagram'));
 
-// app.get('/users/approved', function (req, res, next) {
-//     console.log("made it users/approved")
-//   passport.authenticate('instagram', function(err, user){
-
-//       console.log("user *** ",user);
-
-//       if (err) {
-//           console.log('Err RE');
-//           return res.redirect('/api/users');
-//       }
-//       if (!user) {
-//           console.log('NOUSER RE');
-//           return res.redirect('/api/users');
-//       }
-//       console.log('LOGIN');
-//       req.login(user, function (err) {
-//          return res.redirect('/api/users/:userID');
-//       });
-
-//   })(req, res, next);
-// });
-
-
 app.get('/auth/instagram/callback', passport.authenticate('instagram', {failureRedirect: '/'}), function(req, res){
-    console.log('get it')
-    res.redirect('/#/users/' + req.user._id)
+    console.log('get it');
+    res.redirect('/#/users/' + req.user._id);
 });
-
-
-
-
-
-
-
-
 
 
 /** Middleware **/
@@ -175,9 +108,7 @@ app.isAuthenticatedAjax = function(req, res, next){
     res.send({error:'not logged in'});
 };
 
-
-
-// /** END Middleware **/
+ /** END Middleware **/
 
 
 // Routes \\
@@ -185,7 +116,7 @@ app.isAuthenticatedAjax = function(req, res, next){
 //SignIn\\
 app.post('/api/signIn', usersCtrl.signIn);
 
-// // GET
+// GET
 app.get('/api/users', usersCtrl.getUsers);
 app.get('/api/users/:userID', usersCtrl.getUsers);
 
@@ -206,14 +137,6 @@ app.get('/api/me', app.isAuthenticatedAjax, function(req, res){
     res.send({user:req.user});
 });
 
-// // Stupid simple err catcher
-// app.use(function(req, res){
-//     res.send({err : 'Something bad happened'});
-// });
-
-
-
-
 
 // Creating Server and Listening for Connections \\
 var port = process.env.PORT || 80;
@@ -225,7 +148,9 @@ app.listen(port, function(){
 });
 
 
-// HTTPS Setup //
+// HTTPS Setup \\
+
+
 try {
 
     var credentials = {

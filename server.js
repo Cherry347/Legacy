@@ -148,10 +148,6 @@ app.get('/auth/instagram/callback', passport.authenticate('instagram', {failureR
     res.redirect('/#/users/' + req.user._id)
 });
 
-// app.get('/authLoggedIn', function(req, res){
-//     res.redirect('/#/users/' + req.user._id)
-// })
-
 
 
 

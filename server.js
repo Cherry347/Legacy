@@ -158,6 +158,9 @@ function apiResponse (err, res, body) {
     console.dir(json);
 }
 
+console.log("THIS IS THE API RESPONSE ***** ", apiResponse)
+
+
 
 
 

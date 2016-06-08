@@ -160,7 +160,7 @@ function apiResponse (err, res, body) {
     console.log(" ERR : ", err)
 
     // var json = JSON.parse(body);
-    console.log("THIS IS THE API BODY ***** ", body);
+    console.log(" #2 THIS IS THE API BODY ***** ", body);
 
 }
 

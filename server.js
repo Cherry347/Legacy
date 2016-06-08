@@ -64,7 +64,8 @@ passport.use(new InstagramStrategy({
     callbackURL: "https://loristill.io/auth/instagram/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-
+console.log(" Access token : ", accessToken)
+console.log(" Profile : ", profile)
     User.findOne({ instagramId: profile.id },function (err, user) {
         if(!user) {
             User.create({inst_id: profile.id, accessToken: accessToken }, function(err, newuser){
@@ -82,7 +83,9 @@ passport.use(new InstagramStrategy({
 //Instagram Auth\\
 
 app.get('/auth/instagram',
-  passport.authenticate('instagram'));
+  passport.authenticate('instagram', {
+      scope: ['comments', 'relationships', 'pubic_content', 'likes']
+  }));
 
 app.get('/auth/instagram/callback', passport.authenticate('instagram', {failureRedirect: '/'}), function(req, res){
     console.log('get it');

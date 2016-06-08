@@ -1,17 +1,17 @@
-var express         = require('express');
-var bodyParser      = require('body-parser');
-var logger          = require('morgan');
-var mongoose        = require('mongoose');
-var multiparty      = require('connect-multiparty');
-var usersCtrl       = require('./controllers/usersCtrl.js');
-var User            = require('./models/users.js');
-var fs              = require("fs");
-var https           = require("https");
-var passport        = require('passport');
-var bcrypt          = require('bcryptjs');
-var LocalStrategy   = require('passport-local').Strategy;
-var InstagramStrategy= require('passport-instagram').Strategy;
-
+var express             = require('express');
+var bodyParser          = require('body-parser');
+var logger              = require('morgan');
+var mongoose            = require('mongoose');
+var multiparty          = require('connect-multiparty');
+var usersCtrl           = require('./controllers/usersCtrl.js');
+var User                = require('./models/users.js');
+var fs                  = require("fs");
+var https               = require("https");
+var passport            = require('passport');
+var bcrypt              = require('bcryptjs');
+var LocalStrategy       = require('passport-local').Strategy;
+var InstagramStrategy   = require('passport-instagram').Strategy;
+var request             = require('request');
 
 var app = express();
 
@@ -151,22 +151,12 @@ app.listen(port, function(){
 
 //Instagram Api Requests\\
 
-        app.get('https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=User.accessToken', function(req, res) {
+request('https://api.instagram.com/v1/tags/nofilter/media/recent?access_token=User.accessToken', apiResponse);
 
-            console.log("***this is res*** :", res)
-
-            res.send({"data": {}});
-        });
-
-
-
-
-    //     .then(function(response){
-    //       console.log("Response *** : ", response.data)
-    //     })
-    //   }
-
-
+function apiResponse (err, res, body) {
+    var json = JSON.parse(body);
+    console.dir(json);
+}
 
 
 

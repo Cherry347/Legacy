@@ -161,7 +161,6 @@ function apiResponse (err, res, body) {
 
     // var json = JSON.parse(body);
     console.log("THIS IS THE API BODY ***** ", body);
-    console.log(" 1 THIS IS THE API RESPONSE ***** ", res)
 
 }
 

@@ -129,11 +129,14 @@ app.get('/users/approved', function (req, res, next) {
        console.log("user *** ",user);
 
       if (err) {
-          return res.redirect('/api/users/');
+          console.log('Err RE');
+          return res.redirect('/api/users');
       }
       if (!user) {
-          return res.redirect('/api/users/');
+          console.log('NOUSER RE');
+          return res.redirect('/api/users');
       }
+      console.log('LOGIN');
       req.login(user, function (err) {
          return res.redirect('/api/users/:userID');
       });

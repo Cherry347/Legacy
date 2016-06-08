@@ -99,50 +99,41 @@ passport.use(new InstagramStrategy({
 app.get('/auth/instagram',
   passport.authenticate('instagram'));
 
-// app.get('/auth/instagram/callback', function (req, res, next) {
+// app.get('/users/approved', function (req, res, next) {
+//     console.log("made it users/approved")
 //   passport.authenticate('instagram', function(err, user){
 
-//       console.log(user);
+//       console.log("user *** ",user);
 
 //       if (err) {
-//           return res.redirect('/api/users/');
+//           console.log('Err RE');
+//           return res.redirect('/api/users');
 //       }
 //       if (!user) {
-//           return res.redirect('/api/users/')
+//           console.log('NOUSER RE');
+//           return res.redirect('/api/users');
 //       }
+//       console.log('LOGIN');
 //       req.login(user, function (err) {
-//          return res.redirect('/api/users/:userID')
+//          return res.redirect('/api/users/:userID');
 //       });
 
-//   }),
-//   function(req, res) {
-//     // Successful authentication, redirect home.
-//     res.redirect('/api/users/:userID');
+//   })(req, res, next);
+// });
 
-//   })(req, res, next)
-// })
 
-app.get('/users/approved', function (req, res, next) {
-    console.log("made it users/approved")
-   passport.authenticate('instagram', function(err, user){
+app.get('/users/approved',
+  passport.authenticate('instagram', {failureRedirect: '/api/users', sucessRedirect: '/authLoggedIn'}));
 
-       console.log("user *** ",user);
+app.get('/authLoggedIn', function(req, res){
+    res.redirect('/users/approved' + req.user._id)
+})
 
-      if (err) {
-          console.log('Err RE');
-          return res.redirect('/api/users');
-      }
-      if (!user) {
-          console.log('NOUSER RE');
-          return res.redirect('/api/users');
-      }
-      console.log('LOGIN');
-      req.login(user, function (err) {
-         return res.redirect('/api/users/:userID');
-      });
 
-   })(req, res, next);
-});
+
+
+
+
 
 
 

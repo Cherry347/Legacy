@@ -122,7 +122,7 @@ app.get('/auth/instagram',
 //   })(req, res, next)
 // })
 
-app.get('#/users/approved', function (req, res, next) {
+app.get('/users/approved', function (req, res, next) {
     console.log("made it users/approved")
    passport.authenticate('instagram', function(err, user){
 

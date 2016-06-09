@@ -1,43 +1,258 @@
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>Legacy- Life Starts Now</title>
 
-<!--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--->
-                                              <!--User Sign Up-->
-<!--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--->
-
-
-<p>Sign Up!</p>
-<form ng-submit="createUser()">
-  <input ng-model="newUser.firstName" placeholder="First Name"></input>
-  <input ng-model="newUser.lastName" placeholder="Last Name"></input>
-  <input ng-model="newUser.userName" placeholder="Username"></input>
-  <input type="email" ng-model="newUser.eMail" placeholder="E-mail Address"></input>
-  <input type="password" ng-model="newUser.password" placeholder="Password"></input>
-
-
-  <p>Profile Pic :</p>
-  <input type="file" ng-model="newUser.userPic" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-select ngf-resize="{quality:0.8}"></input>
-
-
-  <input type="submit"></input>
-</form>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
 
 
+    <!--NAV BAR-->
 
 
-<!--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--->
-                                              <!--User Log In-->
-<!--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--->
+    <nav class="black" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">| Legacy |</a>
 
 
-<p>Log In</p>
-<form ng-submit="userLogIn()">
-  <input ng-model="logIn.userName" placeholder="Username"></input>
-  <input type="password" ng-model="logIn.userPassword" placeholder="Password"></input>
+            <!--Inner Nav Bar Mobile-->
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">About Legacy</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <!--End Nav-->
 
 
-  <input type="submit"></input>
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br>
+                <br>
+                <h1 class="header center teal-text text-lighten-2"><br></h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">A  seemless way to track your memories</h5>
+                </div>
+                <div class="row center">
 
 
-</form>
 
-<a href="/auth/instagram">Login with Instagram</a>
+
+                    <!--Modal Trigger-->
+
+                    <a href="#modal1" id="download-button" class="btn-large waves-effect waves- orange darken-1 lighten-1">Get Started</a>
+
+                    <!--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--->
+                    <!------------------------------------------MODAL FOR LOGIN AND SIGNUP------------------------------------------------->
+                    <!--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--->
+
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+
+
+                            <!--Log In -->
+
+
+                            <!--<h4>Log In</h4>-->
+                            <!--<form ng-submit="userLogIn()">-->
+                            <!--  <input ng-model="logIn.userName" placeholder="Username"></input>-->
+                            <!--  <input type="password" ng-model="logIn.userPassword" placeholder="Password"></input>-->
+
+
+                            <!--  <input type="submit"></input>-->
+                            <!--  <br>-->
+                            <!--  <H6>Or</H6>-->
+                            <!--<a href="/auth/instagram">Login with Instagram</a>-->
+                            <!--  <a class="btn-large waves-effect waves- orange darken-1 lighten-1" href="/auth/instagram">Login with Instagram</a>-->
+                            <!--</form>-->
+
+                            <!--Sign Up-->
+
+                            <!--<h4>Sign Up</h4>-->
+                            <!--<div class="container">-->
+                            <!--  <form ng-submit="createUser()">-->
+                            <!--    <input ng-model="newUser.firstName" placeholder="First Name"></input>-->
+                            <!--    <input ng-model="newUser.lastName" placeholder="Last Name"></input>-->
+                            <!--    <input ng-model="newUser.userName" placeholder="Username"></input>-->
+                            <!--    <input type="email" ng-model="newUser.eMail" placeholder="E-mail Address"></input>-->
+                            <!--    <input type="password" ng-model="newUser.password" placeholder="Password"></input>-->
+
+
+                            <!--    <p>Profile Pic :</p>-->
+                            <!--    <input type="file" ng-model="newUser.userPic" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-select ngf-resize="{quality:0.8}"></input>-->
+
+
+                            <!--    <input type="submit"></input>-->
+                            <!--  </form>-->
+
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
+                    </div>
+
+                    <!----------------------------------------------END Modal----------------------------------------------->
+
+                </div>
+                <br>
+                <br>
+
+            </div>
+        </div>
+        <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
+    </div>
+
+
+    <div class="container, black">
+        <div class="section">
+
+
+
+            <!--  Three Part Section   -->
+
+
+
+            <!--SECTION ONE-->
+
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="./Selfie.jpg">
+                                <span class="card-title"></span>
+                            </div>
+                            <div class="card-content">
+                                <h5>Upload Photos</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--SECTION TWO-->
+
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="./journal.jpg">
+                                    <span class="card-title"></span>
+                                </div>
+                                <div class="card-content">
+                                    <h5>Journal About Your Day</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--SECTION THREE-->
+
+                    <div class="row">
+                        <div class="col s12 m4">
+                            <div class="icon-block">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="./enjoy.jpg">
+                                        <span class="card-title"></span>
+                                    </div>
+                                    <div class="card-content">
+                                        <h5>Enjoy the Milestones</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--End Three Part Area-->
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
+    </div>
+
+
+    <!-----------------------LEGACY TEXT FIELD----------------------------------->
+
+    <div class="container, black">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s12 center">
+                    <h3><i class="mdi-content-send cyan-text"></i></h3>
+                    <h5 class=teal-text text-lighten-2>What is a Legacy?</h5>
+                    <p class=white-text>“A life well-lived is a precious gift
+                    of hope and strength and grace
+                    from someone who has made our world
+                    a brighter, better place.
+                    It’s filled with moments sweet and sad,
+                    with smiles and sometimes tears,
+                    with friendships formed and good times shared
+                    and laughter through the years.
+                    A life well-lived is a legacy of joy and pride and pleasure,
+                    A loving, lasting memory our grateful hearts will
+                    treasure.”</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
+    </div>
+
+
+    <!--Footer Starts-->
+
+
+    <footer class="page-footer black">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="white-text">Our Moto</h5>
+                    <p class="grey-text text-lighten-4">Live life and keep coding :)</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Legacy 2016
+            </div>
+        </div>
+    </footer>
+
+    <!--Footer Ends-->
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>

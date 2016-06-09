@@ -1,12 +1,12 @@
 {
     "title": {
         "media": {
-          "url": "https://static.pexels.com/photos/72161/pexels-photo-72161-large.jpg",
+          "url": "{{ static_url }}./Extras/Welcome.jpg",
           "caption": "Lily Ryan's incredible odyssey!",
           "credit": "flickr/<a href='http://www.flickr.com/photos/tm_10001/'>tm_10001</a>"
         },
         "text": {
-          "headline": "Lily Ryan's Incredible Odyssey<br/> 2007 - Now",
+          "headline": "Lily Ryan<br/> 2007 - Now",
           "text": "<p>'Whatever is fluid, soft, and yielding will overcome whatever is rigid and hard. What is soft is strong.' —Lao Tzu</p>"
         }
     },

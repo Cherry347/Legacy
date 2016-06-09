@@ -3,6 +3,12 @@ angular.module('Legacy')
 
 function homeController($scope, $http, userFactory, Upload, $state) {
 
+//Modal Pop Up
+	$scope.showModal = function() {
+		$scope.modal = !$scope.modal;
+	};
+
+
 
 //Sign Up
 

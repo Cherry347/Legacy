@@ -4,6 +4,8 @@ html {
 
 .fancy-modal {
   visibility: hidden;
+  background: black;
+  opacity: 0.6;
 }
 
 nav ul a,

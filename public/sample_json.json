@@ -1,12 +1,11 @@
 {
     "title": {
         "media": {
-          "url": "/Extras/Welcome.jpg",
           "caption": ""
         },
         "text": {
-          "headline": "Lily Ryan<br/> 2007 - Present",
-          "text": "<p>'Whatever is fluid, soft, and yielding will overcome whatever is rigid and hard. What is soft is strong.' —Lao Tzu</p>"
+          "headline": "Lily Ryan's World",
+          "text": "<p>Begin Her Epic Timeline</p>"
         }
     },
     "events": [
@@ -73,9 +72,8 @@
       },
       {
         "media": {
-          "url": "https://youtu.be/A4jGzNm2yPI",
-          "caption": "Whitney Houston and Clive Davis discussing her discovery and her eponymous first album.",
-          "credit": "Sony Music Entertainment"
+          "url": "/Extras/Sunday.jpg",
+          "caption": "Hiking with the gang"
         },
         "start_date": {
           "month": "6",
@@ -83,15 +81,14 @@
           "year": "2016"
         },
         "text": {
-          "headline": "Signed",
-          "text": "Houston is signed to Arista Records after exec Clive Davis sees her performing on stage with her mother in New York."
+          "headline": "Fresh Air",
+          "text": "Today we went on our first hike with our small group. It was fun! I had to sneak away for a moment to grab this amazing shot. It's something I'm going to want to remember."
         }
       },
       {
         "media": {
-          "url": "https://youtu.be/m3-hY-hlhBg",
-          "caption": "The 'How Will I Know' video showcases the youthful energy that boosted Houston to stardom.",
-          "credit": "Arista Records Inc."
+          "url": "/Extras/Neko.jpg",
+          "caption": "Oh to have the life of a cat"
         },
         "start_date": {
           "month": "6",
@@ -99,31 +96,29 @@
           "year": "2016"
         },
         "text": {
-          "headline": "Debut",
-          "text": "Whitney Houston's self titled first release sold over 12 million copies in the U.S. and included the hit singles 'How Will I Know,' 'You Give Good Love,' 'Saving All My Love For You' and 'Greatest Love of All.'"
+          "headline": "Long Day",
+          "text": "Today was rough, nothing seems to be going right with our project. All the hours I'm pouring in and still no sign of light... So, coming home to Neko all fluffy-like, sunggled in bed makes me want to join him... I think I will. "
         }
       },
       {
         "media": {
-          "url": "https://youtu.be/v0XuiMX1XHg",
-          "caption": "Dionne Warwick gleefully announces cousin, Whitney Houston, the winner of the Best Female Pop Vocal Performance for the song Saving All My Love.",
-          "credit": "<a href='http://grammy.org'>The Recording Academy</a>"
-        },
+          "url": "https://youtu.be/7ga5wTxF6Tc",
+          "caption": "Courage, dear heart"
+          },
         "start_date": {
           "month": "6",
           "day": "7",
           "year": "2016"
         },
         "text": {
-          "headline": "'The Grammys'",
-          "text": "In 1986 Houston won her first Grammy for the song Saving All My Love. In total she has won six Grammys, the last of which she won in 1999 for It's Not Right But It's Okay."
+          "headline": "Double Shot Motivation",
+          "text": "Grant me the stormy seas over a life of ease, the toil and madness of a life of effort, and adventure, and meaning. The safe harbor is not for me, not for long. Let the fearful stand at the shore and point as we head into the unknown, toward that vast horizon where the bold become legend."
         }
       },
       {
         "media": {
-          "url": "https://youtu.be/eH3giaIzONA",
-          "caption": "I Wanna Dance With Somebody",
-          "credit": "Arista Records Inc."
+          "url": "/Extras/BinBed.jpg",
+          "caption": "Mmmmmmmm!"
         },
         "start_date": {
           "month": "6",
@@ -131,8 +126,8 @@
           "year": "2016"
         },
         "text": {
-          "headline": "'Whitney'",
-          "text": "Multiplatinum second album sells more than 20 million copies worldwide. With 'Whitney', Houston became the first female artist to produce four number 1 singles on one album including \"I Wanna Dance With Somebody,' 'Didn't We Almost Have It All,' 'So Emotional' and 'Where Do Broken Hearts Go.'"
+          "headline": "Breakfast In Bed",
+          "text": "Jake did the sweetest thing this morning! It's so beautiful and tasty!"
         }
       }
     ]

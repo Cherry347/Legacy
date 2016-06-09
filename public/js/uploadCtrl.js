@@ -14,7 +14,4 @@ function uploadController ($scope, $http, Upload) {
     		}
         });
     };
-
-    $scope.resizePic = function() {
-    };
 }

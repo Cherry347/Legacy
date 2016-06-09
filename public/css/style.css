@@ -8,6 +8,7 @@ html {
 
 .modal-content {
   background-color: black;
+  border-radius: 3px;
 
 }
 

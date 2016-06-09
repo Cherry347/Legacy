@@ -52,17 +52,18 @@
 
 
                             <h4>Log In</h4>
+                            <div class="container">
                             <form ng-submit="userLogIn()">
                               <input ng-model="logIn.userName" placeholder="Username"></input>
                               <input type="password" ng-model="logIn.userPassword" placeholder="Password"></input>
 
 
-                              <input type="submit"></input>
+                              <button type="submit"></button>
                               <br>
                               <H6>Or</H6>
                             <a href="/auth/instagram">Login with Instagram</a>
-                              <a class="btn-large waves-effect waves- orange darken-1 lighten-1" href="/auth/instagram">Login with Instagram</a>
                             </form>
+                            </div>
 
                             <!--Sign Up-->
 
@@ -80,7 +81,7 @@
                                 <input type="file" ng-model="newUser.userPic" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-select ngf-resize="{quality:0.8}"></input>
 
 
-                                <input type="submit"></input>
+                                <button type="submit"></button>
                               </form>
 
                         </div>

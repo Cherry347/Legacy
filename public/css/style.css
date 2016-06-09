@@ -2,6 +2,9 @@ html {
   font-family: Trebuchet;
 }
 
+.fancy-modal {
+  visibility: hidden;
+}
 
 nav ul a,
 nav .brand-logo {

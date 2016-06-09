@@ -4,6 +4,7 @@ html {
 
 .fancy-modal {
   visibility: hidden;
+  position: absolute;
 }
 
 .modal-content {

@@ -9,7 +9,7 @@ html {
 
 .fancy-modal {
   visibility: hidden;
-  /*position: absolute;*/
+  position: absolute;
 }
 
 .modal-content {
